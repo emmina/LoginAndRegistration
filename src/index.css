@@ -12,3 +12,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+	font-family: 'fontello';
+	src: url('./assets/font/fontello.eot?0000');
+	src: url('./assets/font/fontello.eot?0000#iefix') format('embedded-opentype'),
+	     url('./assets/font/fontello.woff2?0000') format('woff2'),
+	     url('./assets/font/fontello.woff?0000') format('woff'),
+	     url('./assets/font/fontello.ttf?0000') format('truetype'),
+	     url('./assets/font/fontello.svg?0000#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+input[type="password"] {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+
+	font-variant: normal;
+  text-transform: none;
+  
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 1px;
+}
