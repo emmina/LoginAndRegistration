@@ -36,7 +36,7 @@ class LoginModal extends Component {
                     animation={false}
                     className='login'
                     backdropClassName='backdrop-opacity'>
-                    <h4 className='modal-title'>Welcome Back</h4>
+                    <h5 className='modal-title'>Welcome Back</h5>
                     <Modal.Body bsClass='custom-modal-body'>
                         <form action="/action_page.php" className='form-padding'>
                             <div className="form-floating-label has-value">

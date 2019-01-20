@@ -5,15 +5,6 @@
 .modal-title {
     width: 170px;
     height: 20px;
-    font-family: Ubuntu;
-    font-size: 20px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: center;
-    color: #334144;
     padding-top: 30px;
     margin-left: 135px;
 }
@@ -64,6 +55,41 @@
     flex-direction: column;
     margin-top: 78px;
     margin-left: 30px;
+}
+
+.profile input[type=text] {
+  height: 13px !important;
+  font-size: 18px !important;
+  font-weight: normal !important;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.72;
+  letter-spacing: normal;
+  color: #334144;
+}
+
+.profile-name h5 {
+    width: 100%;
+    height: 25px;
+    font-size: 25px;
+    font-weight: 300 !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #334144;
+}
+
+.profile-name p {
+    width: 71px;
+    height: 13px;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #949ea0;
 }
 
 .custom-modal-body {

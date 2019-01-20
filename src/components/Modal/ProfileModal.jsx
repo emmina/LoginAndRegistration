@@ -18,7 +18,7 @@ class ProfileModal extends Component {
                 <div className='profile-header'>
                 <img src={profile} alt="logo" className='profile-picture' height="80" width="80"/>
                 <div className='profile-name'>
-                    <h3>Michael Berry</h3>
+                    <h5>Michael Berry</h5>
                     <p>47 sightings</p>
                 </div>
                 </div>

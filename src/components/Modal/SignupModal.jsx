@@ -32,7 +32,7 @@ class SignupModal extends Component {
             password: password,
             email: email}));
     }
-
+    
     render() {
         const { isShown } = this.props;
 
@@ -41,7 +41,7 @@ class SignupModal extends Component {
                 animation={false}
                 className='signup'
                 backdropClassName='backdrop-opacity'>
-                <h4 className='modal-title'>Create an account</h4>
+                <h5 className='modal-title'>Create an account</h5>
                 <Modal.Body bsClass='custom-modal-body'>
                     <form action="/" className='form-padding'>
                         <div className='center-names'>
