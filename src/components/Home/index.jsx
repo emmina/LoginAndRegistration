@@ -25,6 +25,8 @@ class Home extends Component {
 
     render() {
         const { openedModal } = this.state;
+
+        console.log(localStorage);
         
         return (
             <div className="home">

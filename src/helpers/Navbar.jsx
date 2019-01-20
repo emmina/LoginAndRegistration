@@ -15,7 +15,7 @@ class Navbar extends Component {
         return (
             <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
             <a className='' href="/">
-            <img src={logo} alt="logo" height="27" width="151"/>
+            <img src={logo} className='logo' alt="logo" height="27" width="151"/>
             </a>
             <ul className="navbar-nav ml-auto">
             <li className="nav-item navbar-text">
@@ -34,11 +34,11 @@ class Navbar extends Component {
       </Link>
         </li>*/}
       <li className="nav-item navbar-text">
-      <Link to='/' className='nav-link' onClick={(e) => this.onOpenModal('login')}>Login</Link>
+      <Link to='/' className='nav-link login' onClick={(e) => this.onOpenModal('login')}>Login</Link>
       </li>
       <li className="nav-item navbar-text">
-      <button type="button" className="btn btn-primary" onClick={(e) => this.onOpenModal('signup')}>
-      Signup
+      <button type="button" className="btn btn-primary signup-button" onClick={(e) => this.onOpenModal('signup')}>
+      New Account
       </button>
         </li>
     </ul>
