@@ -23,10 +23,47 @@
     height: 410px;
 }
 
+.profile .modal-dialog {
+    width: 600px !important;
+    height: 610px;
+}
+
 .modal-content {
     border-radius: 3px !important;
     box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
     background-color: var(--white) !important;
+    top: 361px;
+}
+
+.profile .modal-content {
+    top: 150px;
+    width: 600px;
+}
+
+.profile .custom-modal-body {
+    padding: 41px 1rem 1rem 5rem;
+}
+
+.profile .logout-button {
+    margin-bottom: 43px;
+    margin-left: 114px;
+}
+
+.profile-picture {
+    margin-left: 111px;
+    margin-top: 60px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-name {
+    display: flex;
+    flex-direction: column;
+    margin-top: 78px;
+    margin-left: 30px;
 }
 
 .custom-modal-body {
@@ -80,6 +117,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
+.profile-form input[type=submit] {
+    width: 150px;
+}
+
 .form-floating-label {
   position: relative;
   margin-bottom: 10px;
@@ -94,6 +135,10 @@ input[type=submit] {
   font-size: 13px;
   font-weight: 300;
   padding: 30px 1rem 1rem 15px;
+}
+
+.form-floating-label.profile [type='text'] {
+    padding: 40px 1rem 1rem 15px;
 }
 
 .form-floating-label [type='password'] {
@@ -121,4 +166,7 @@ input[type=submit] {
   font-weight: 400;
 }
 
-
+.form-floating-label.has-value.profile [type='text'] {
+    border: 0px;
+    background: white;
+}

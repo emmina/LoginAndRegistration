@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../assets/logo.png';
+import profile from '../assets/profile.png';
 
 import './Navbar.css';
 
@@ -25,14 +27,20 @@ class Navbar extends Component {
       <li className="nav-item navbar-text">
       <a className='nav-link' href="/shows">Favorites</a>
       </li>
+      {/*<li className="nav-item navbar-text">
+      <Link to='/' className='nav-link' onClick={(e) => this.onOpenModal('profile')}>
+      John Doe
+      <img className='profile-image' src={profile} alt="profile" height='40' width='40'></img>
+      </Link>
+        </li>*/}
       <li className="nav-item navbar-text">
-      <a className='nav-link' href="/shows">Login</a>
+      <Link to='/' className='nav-link' onClick={(e) => this.onOpenModal('login')}>Login</Link>
       </li>
       <li className="nav-item navbar-text">
       <button type="button" className="btn btn-primary" onClick={(e) => this.onOpenModal('signup')}>
       Signup
       </button>
-      </li>
+        </li>
     </ul>
             </nav>
         );
