@@ -230,3 +230,9 @@ input[type=submit] {
     border: 0px;
     background: white;
 }
+
+.toast-title {
+    width: 100%;
+    margin-left: 10px;
+    text-align: center;
+}

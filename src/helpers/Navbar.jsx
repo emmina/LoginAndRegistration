@@ -38,7 +38,7 @@ class Navbar extends Component {
                         </Link>
                     </li>}
                     {localStorage.getItem('user') === null && <li className="nav-item navbar-text">
-                        <Link to='/' className='nav-link login' onClick={(e) => this.onOpenModal('login')}>Login</Link>
+                        <Link to='/' className='nav-link login-item' onClick={(e) => this.onOpenModal('login')}>Login</Link>
                     </li>}
                     {localStorage.getItem('user') === null && <li className="nav-item navbar-text">
                         <button type="button" className="btn btn-primary signup-button" onClick={(e) => this.onOpenModal('signup')}>

@@ -24,21 +24,24 @@ class Home extends Component {
     }
 
     onOpenModal(modal) {
-        this.setState({openedModal: modal})
+        this.setState({ openedModal: modal })
     }
 
     handleClose() {
-        this.setState({openedModal: ''})
+        this.setState({ openedModal: '' })
     }
 
     render() {
         const { openedModal } = this.state;
-        
+
         return (
             <div className="home">
-                <Navbar active='home' 
-                        onOpenModal={this.onOpenModal}/>
-                <ModalPopup openedModal={openedModal} handleClose={this.handleClose}/>
+                <Navbar active='home'
+                    onOpenModal={this.onOpenModal} />
+                <ModalPopup
+                    openedModal={openedModal}
+                    handleClose={this.handleClose}
+                    onOpenModal={this.onOpenModal} />
             </div>
         )
     }

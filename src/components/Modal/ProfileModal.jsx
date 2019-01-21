@@ -15,6 +15,12 @@ class ProfileModal extends Component {
         this.onLogout = this.onLogout.bind(this);
     }
 
+    componentDidMount() {
+        const { dispatch } = this.props;
+
+        dispatch(userActions.getUser());
+    }
+
     onLogout() {
         const { dispatch, history, handleClose } = this.props;
 

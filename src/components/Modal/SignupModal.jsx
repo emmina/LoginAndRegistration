@@ -27,7 +27,7 @@ class SignupModal extends Component {
     }
 
     async onSignin() {
-        const { dispatch, history, handleClose } = this.props;
+        const { dispatch, history, openRegToast } = this.props;
         const { fname, lname, date, email, password } = this.state;
         const newDate = moment(date).format('YYYY/MM/DD').toString();
 
@@ -40,7 +40,7 @@ class SignupModal extends Component {
         }));
 
         history.replace('/');
-        handleClose();
+        openRegToast();
     }
 
     render() {

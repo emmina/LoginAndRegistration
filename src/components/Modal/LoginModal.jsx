@@ -21,7 +21,7 @@ class LoginModal extends Component {
     }
 
     onLogin() {
-        const { dispatch, history, handleClose } = this.props;
+        const { dispatch, history, openLoginToast } = this.props;
         const { email, password } = this.state;
 
         dispatch(userActions.login({
@@ -30,7 +30,7 @@ class LoginModal extends Component {
         }));
 
         history.replace('/');
-        handleClose();
+        openLoginToast();
     }
 
     render() {
