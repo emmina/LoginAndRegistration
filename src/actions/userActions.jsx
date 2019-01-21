@@ -9,7 +9,7 @@ function register(user) {
         userService.register(user)
             .then(
                 user => { 
-                    dispatch(success());
+                    dispatch(success(user));
                     history.push('/');
                 },
                 error => {
@@ -23,11 +23,11 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
-function login(username, password) {
+function login(user) {
     return dispatch => {
-        dispatch(request({ username }));
+        dispatch(request(user));
 
-        userService.login(username, password)
+        userService.login(user)
             .then(
                 user => { 
                     dispatch(success(user));
@@ -60,8 +60,14 @@ function getUser() {
     function failure(error) { return { type: userConstants.GETUSER_FAILURE, error } }
 }
 
+function logout() {
+    userService.logout();
+    return { type: userConstants.LOGOUT };
+}
+
 export const userActions = {
     register,
     login,
-    getUser
+    getUser,
+    logout
 };

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { withRouter } from 'react-router';
 
 import { userActions } from '../../actions';
 
@@ -24,17 +26,21 @@ class SignupModal extends Component {
         this.onSignin = this.onSignin.bind(this);
     }
 
-    onSignin() {
-        const { dispatch } = this.props;
+    async onSignin() {
+        const { dispatch, history, handleClose } = this.props;
         const { fname, lname, date, email, password } = this.state;
+        const newDate = moment(date).format('YYYY/MM/DD').toString();
 
-        dispatch(userActions.register({
+        await dispatch(userActions.register({
             first_name: fname,
             last_name: lname,
-            date_of_birth: date,
+            date_of_birth: newDate,
             password: password,
             email: email
         }));
+
+        history.replace('/');
+        handleClose();
     }
 
     render() {
@@ -47,8 +53,8 @@ class SignupModal extends Component {
                 backdropClassName='backdrop-opacity'>
                 <h5 className='modal-title'>Create an account</h5>
                 <Modal.Body bsClass='custom-modal-body'>
-                    <form action="/" className='form-padding'>
-                        <div className='center-names'>
+                <div className='form-padding'>
+                <div className='center-names'>
                             <div className="form-floating-label has-value">
                                 <input type="text" id="fname" name="firstname" onChange={(event) => this.setState({ fname: event.target.value })} required />
                                 <label>First name</label>
@@ -81,7 +87,7 @@ class SignupModal extends Component {
                         </div>
 
                         <input type="submit" value="Create account" onClick={this.onSignin} />
-                    </form>
+                </div>  
                 </Modal.Body>
                 <Link to='/' className='close-modal close-signup' onClick={this.props.handleClose}>I don't want to Register</Link>
             </Modal>
@@ -90,13 +96,12 @@ class SignupModal extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     const { registering } = state.registration;
     return {
         registering
     };
 }
 
-
+SignupModal = withRouter(SignupModal);
 SignupModal = connect(mapStateToProps)(SignupModal);
 export default SignupModal;

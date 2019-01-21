@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Navbar from '../../helpers/Navbar';
 import ModalPopup from '../../helpers/ModalPopup';
+import { userActions } from '../../actions';
 
 class Home extends Component {
     constructor() {
@@ -15,6 +17,12 @@ class Home extends Component {
         this.handleClose = this.handleClose.bind(this);
     }
 
+    componentDidMount() {
+        const { dispatch } = this.props;
+
+        dispatch(userActions.getUser());
+    }
+
     onOpenModal(modal) {
         this.setState({openedModal: modal})
     }
@@ -25,8 +33,6 @@ class Home extends Component {
 
     render() {
         const { openedModal } = this.state;
-
-        console.log(localStorage);
         
         return (
             <div className="home">
@@ -38,4 +44,13 @@ class Home extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    const { authentication } = state;
+    const { user } = authentication;
+    return {
+        user
+    };
+}
+
+Home = connect(mapStateToProps)(Home);
 export default Home;

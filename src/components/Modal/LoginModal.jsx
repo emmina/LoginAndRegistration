@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import { userActions } from '../../actions';
 
@@ -20,13 +21,16 @@ class LoginModal extends Component {
     }
 
     onLogin() {
-        const { dispatch } = this.props;
+        const { dispatch, history, handleClose } = this.props;
         const { email, password } = this.state;
 
         dispatch(userActions.login({
             email: email,
             password: password
         }));
+
+        history.replace('/');
+        handleClose();
     }
 
     render() {
@@ -40,8 +44,8 @@ class LoginModal extends Component {
                     backdropClassName='backdrop-opacity'>
                     <h5 className='modal-title'>Welcome Back</h5>
                     <Modal.Body bsClass='custom-modal-body'>
-                        <form action="/action_page.php" className='form-padding'>
-                            <div className="form-floating-label has-value">
+                        <div className='form-padding'>
+                        <div className="form-floating-label has-value">
                                 <input type="email" id="email" name="email" onChange={(event) => this.setState({ email: event.target.value })} required />
                                 <label>Email Address</label>
                             </div>
@@ -50,8 +54,8 @@ class LoginModal extends Component {
                                 <label>Password</label>
                             </div>
 
-                            <input type="submit" value="Login to your Account" />
-                        </form>
+                            <input type="submit" value="Login to your Account" onClick={this.onLogin}/>
+                        </div>
                     </Modal.Body>
                     <Link to='/' className='close-modal' onClick={this.props.handleClose}>I don't want to Login</Link>
                 </Modal>
@@ -62,12 +66,12 @@ class LoginModal extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     const { loggingIn } = state.authentication;
     return {
         loggingIn
     };
 }
 
+LoginModal = withRouter(LoginModal);
 LoginModal = connect(mapStateToProps)(LoginModal);
 export default LoginModal;

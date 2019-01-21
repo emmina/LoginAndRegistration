@@ -7,7 +7,10 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/register', requestOptions).then(handleResponse);
+    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/register', requestOptions).then(handleResponse).then(token => {
+        localStorage.setItem('auth_token', token.auth_token);
+    }
+    );
 }
 
 function logout() {
@@ -20,22 +23,20 @@ function getUser() {
         headers: authHeader()
     };
 
-    return fetch('flowrspot-api.herokuapp.com/api/v1/users/me', requestOptions).then(handleResponse);
+    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/me', requestOptions).then(handleResponse);
 }
 
-function login(username, password) {
+function login(user) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify(user)
     };
 
     return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/login', requestOptions)
         .then(handleResponse)
-        .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-
+        .then(value => {
+            localStorage.setItem('user', JSON.stringify(value));
             return user;
         });
 }
@@ -50,10 +51,12 @@ function handleResponse(response) {
             }
 
             const error = (data && data.message) || response.statusText;
+            console.log(error)
             return Promise.reject(error);
         }
-
         return data;
+    }, error => {
+        console.log(error)
     });
 }
 
