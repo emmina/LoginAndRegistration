@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-import profile from '../../assets/profile.png'
+import profile from '../../assets/profile.png';
+import { userActions } from '../../actions';
 
 import './style.css';
 
 class ProfileModal extends Component {
+
+    componentDidMount() {
+        this.props.dispatch(userActions.getUser());
+    }
+
     render() {
-        const { isShown } = this.props;
+        const { isShown, user } = this.props;
+        console.log(user)
 
         return (
             <Modal show={isShown}
@@ -52,4 +60,14 @@ class ProfileModal extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    const { authentication } = state;
+    console.log('auth', authentication)
+    const { user } = authentication;
+    return {
+        user
+    };
+}
+
+ProfileModal = connect(mapStateToProps)(ProfileModal);
 export default ProfileModal;

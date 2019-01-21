@@ -11,11 +11,9 @@ function register(user) {
                 user => { 
                     dispatch(success());
                     history.push('/');
-                    //dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    //dispatch(alertActions.error(error.toString()));
                 }
             );
     };
@@ -37,7 +35,6 @@ function login(username, password) {
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    //dispatch(alertActions.error(error.toString()));
                 }
             );
     };
@@ -47,7 +44,24 @@ function login(username, password) {
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 
+function getUser() {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getUser()
+            .then(
+                user => dispatch(success(user)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() { return { type: userConstants.GETUSER_REQUEST } }
+    function success(user) { return { type: userConstants.GETUSER_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.GETUSER_FAILURE, error } }
+}
+
 export const userActions = {
     register,
-    login
+    login,
+    getUser
 };

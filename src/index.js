@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-bootstrap/dist/react-bootstrap'
+import "react-datepicker/dist/react-datepicker.css";
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -12,6 +12,7 @@ class Navbar extends Component {
     }
 
     render() {
+        console.log(localStorage.getItem('user'))
         return (
             <nav className="nav navbar navbar-expand-lg navbar-light bg-light">
             <a className='' href="/">
@@ -27,16 +28,16 @@ class Navbar extends Component {
       <li className="nav-item navbar-text">
       <a className='nav-link' href="/shows">Favorites</a>
       </li>
-      {localStorage.user && <li className='profile-item'>
+      {localStorage.getItem('user') === null && <li className='profile-item'>
       <Link to='/' className='nav-link' onClick={(e) => this.onOpenModal('profile')}>
       John Doe
       <img className='profile-image' src={profile} alt="profile" height='40' width='40'></img>
       </Link>
         </li>}
-      {localStorage.user === undefined && <li className="nav-item navbar-text">
+      {localStorage.getItem('user') === null && <li className="nav-item navbar-text">
       <Link to='/' className='nav-link login' onClick={(e) => this.onOpenModal('login')}>Login</Link>
       </li>}
-      {localStorage.user === undefined && <li className="nav-item navbar-text">
+      {localStorage.getItem('user') === null && <li className="nav-item navbar-text">
       <button type="button" className="btn btn-primary signup-button" onClick={(e) => this.onOpenModal('signup')}>
       New Account
       </button>

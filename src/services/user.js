@@ -14,6 +14,15 @@ function logout() {
     localStorage.removeItem('user');
 }
 
+function getUser() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch('flowrspot-api.herokuapp.com/api/v1/users/me', requestOptions).then(handleResponse);
+}
+
 function login(username, password) {
     const requestOptions = {
         method: 'POST',
@@ -51,5 +60,6 @@ function handleResponse(response) {
 export const userService = {
     register,
     logout,
-    login
+    login,
+    getUser
 };
