@@ -46,16 +46,16 @@ class ProfileModal extends Component {
                 onHide={this.props.handleClose}
                 backdropClassName='backdrop-opacity'>
                 <Modal.Header>
-                <button type="button" className="close" onClick={this.handleClose}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
-                <div className='profile-header'>
-                <img src={profileImage} alt="logo" className='profile-picture' height="80" width="80"/>
-                <div className='profile-name'>
-                    <h5>{profile !== undefined ? profile.first_name : ''} {profile !== undefined ? profile.last_name : ''}</h5>
-                    <p>47 sightings</p>
-                </div>
-                </div>
-        </Modal.Header>
-                
+                    <button type="button" className="close" onClick={this.handleClose}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
+                    <div className='profile-header'>
+                        <img src={profileImage} alt="logo" className='profile-picture' height="80" width="80" />
+                        <div className='profile-name'>
+                            <h5>{profile !== undefined ? profile.first_name : ''} {profile !== undefined ? profile.last_name : ''}</h5>
+                            <p>47 sightings</p>
+                        </div>
+                    </div>
+                </Modal.Header>
+
                 <Modal.Body bsClass='custom-modal-body'>
                     <div className='form-padding profile-form'>
                         <div className="form-floating-label has-value profile">

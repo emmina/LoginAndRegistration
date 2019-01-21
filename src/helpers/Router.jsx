@@ -8,7 +8,7 @@ class Router extends PureComponent {
     render() {
         return (
             <Switch>
-                <Route path="/"exact component={Home} />
+                <Route path="/" exact component={Home} />
                 <Route path="/:openedModal=profile" exact component={Home} />
             </Switch>
         )

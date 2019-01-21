@@ -1,5 +1,4 @@
 import { userConstants } from '../constants';
-import { history } from '../helpers';
 import { userService } from '../services';
 
 function register(user, registerToast) {
@@ -10,7 +9,6 @@ function register(user, registerToast) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    //history.go(0);
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -31,8 +29,6 @@ function login(user, loginToast) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    getUser();
-                    //history.go(0);
                 },
                 error => {
                     dispatch(failure(error.toString()));

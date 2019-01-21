@@ -32,16 +32,16 @@ class LoginToast extends Component {
                     className='reg-toast'
                     backdropClassName='backdrop-opacity'>
                     <Modal.Header>
-                    <h5 className='modal-title toast-title'>Congratulations! You have successfully logged into FlowrSpot!</h5>
+                        <h5 className='modal-title toast-title'>Congratulations! You have successfully logged into FlowrSpot!</h5>
                     </Modal.Header>
                     <Modal.Body bsClass='custom-modal-body'>
                         <div className='form-padding'>
-                            <input type="submit" value="OK" onClick={this.closeModal}/>
-                            <input type="submit" value="Profile" onClick={this.openProfile}/>
+                            <input type="submit" value="OK" onClick={this.closeModal} />
+                            <input type="submit" value="Profile" onClick={this.openProfile} />
                         </div>
                     </Modal.Body>
                 </Modal>
-                
+
             </div>
         )
     }

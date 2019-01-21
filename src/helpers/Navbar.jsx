@@ -23,13 +23,13 @@ class Navbar extends Component {
                 </a>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item navbar-text">
-                        <a className='nav-link' href="/shows">Flowers</a>
+                        <a className='nav-link' href="/flowers">Flowers</a>
                     </li>
                     <li className="nav-item navbar-text">
-                        <a className='nav-link' href="/shows">Latest Sightings</a>
+                        <a className='nav-link' href="/sightings">Latest Sightings</a>
                     </li>
                     <li className="nav-item navbar-text">
-                        <a className='nav-link' href="/shows">Favorites</a>
+                        <a className='nav-link' href="/favourites">Favorites</a>
                     </li>
                     {localStorage.getItem('user') !== null && <li className='profile-item'>
                         <Link to='/' className='nav-link profile-link' onClick={(e) => this.onOpenModal('profile')}>

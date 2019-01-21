@@ -7,30 +7,15 @@ class ModalPopup extends Component {
         super(props);
 
         this.handleClose = this.handleClose.bind(this);
-        this.openProfile = this.openProfile.bind(this);
-        this.openLogin = this.openLogin.bind(this);
-        this.openLoginToast = this.openLoginToast.bind(this);
-        this.openRegToast = this.openRegToast.bind(this);
+        this.openModal = this.openModal.bind(this);
     }
 
     handleClose() {
         this.props.handleClose();
     }
 
-    openProfile() {
-        this.props.onOpenModal('profile');
-    }
-
-    openLogin() {
-        this.props.onOpenModal('login')
-    }
-
-    openLoginToast() {
-        this.props.onOpenModal('log-toast');
-    }
-
-    openRegToast() {
-        this.props.onOpenModal('reg-toast');
+    openModal(modal) {
+        this.props.onOpenModal(modal);
     }
 
     render() {
@@ -38,20 +23,20 @@ class ModalPopup extends Component {
 
         return (
             <div hidden={openedModal === ''} className={openedModal}>
-                <SignupModal 
-                isShown={openedModal === 'signup'} 
-                handleClose={this.handleClose}
-                openRegToast={this.openRegToast} />
-                <LoginModal 
-                isShown={openedModal === 'login'} 
-                handleClose={this.handleClose}
-                openLoginToast={this.openLoginToast} />
+                <SignupModal
+                    isShown={openedModal === 'signup'}
+                    handleClose={this.handleClose}
+                    openRegToast={(e) => this.openModal('reg-toast')} />
+                <LoginModal
+                    isShown={openedModal === 'login'}
+                    handleClose={this.handleClose}
+                    openLoginToast={(e) => this.openModal('log-toast')} />
                 <ProfileModal isShown={openedModal === 'profile'} handleClose={this.handleClose} />
                 <RegistrationToast
                     isShown={openedModal === 'reg-toast'}
-                    openLogin={this.openLogin} />
+                    openLogin={(e) => this.openModal('login')} />
                 <LoginToast
-                    isShown={openedModal === 'log-toast'}/>
+                    isShown={openedModal === 'log-toast'} />
             </div>
 
         )
