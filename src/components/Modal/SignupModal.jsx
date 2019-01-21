@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
+import { Link } from 'react-router-dom';
 
 import { userActions } from '../../actions';
 
@@ -82,7 +83,7 @@ class SignupModal extends Component {
                         <input type="submit" value="Create account" onClick={this.onSignin} />
                     </form>
                 </Modal.Body>
-
+                <Link to='/' className='close-modal close-signup' onClick={this.props.handleClose}>I don't want to Register</Link>
             </Modal>
         )
     }

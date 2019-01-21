@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import { userActions } from '../../actions';
 
@@ -32,6 +33,7 @@ class LoginModal extends Component {
         const { isShown } = this.props;
 
         return (
+            <div>
                 <Modal show={isShown}
                     animation={false}
                     className='login'
@@ -51,8 +53,10 @@ class LoginModal extends Component {
                             <input type="submit" value="Login to your Account" />
                         </form>
                     </Modal.Body>
-
+                    <Link to='/' className='close-modal' onClick={this.props.handleClose}>I don't want to Login</Link>
                 </Modal>
+                
+            </div>
         )
     }
 }

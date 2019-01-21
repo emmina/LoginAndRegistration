@@ -22,7 +22,9 @@ class ProfileModal extends Component {
                 className='profile'
                 animation={false}
                 backdrop={true}
+                onHide={this.props.handleClose}
                 backdropClassName='backdrop-opacity'>
+                <Modal.Header closeButton>
                 <div className='profile-header'>
                 <img src={profile} alt="logo" className='profile-picture' height="80" width="80"/>
                 <div className='profile-name'>
@@ -30,6 +32,8 @@ class ProfileModal extends Component {
                     <p>47 sightings</p>
                 </div>
                 </div>
+        </Modal.Header>
+                
                 <Modal.Body bsClass='custom-modal-body'>
                     <form action="/action_page.php" className='form-padding profile-form'>
                         <div className="form-floating-label has-value profile">

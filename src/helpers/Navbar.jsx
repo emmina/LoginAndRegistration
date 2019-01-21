@@ -28,7 +28,7 @@ class Navbar extends Component {
       <li className="nav-item navbar-text">
       <a className='nav-link' href="/shows">Favorites</a>
       </li>
-      {localStorage.getItem('user') === null && <li className='profile-item'>
+      {localStorage.getItem('user') !== null && <li className='profile-item'>
       <Link to='/' className='nav-link' onClick={(e) => this.onOpenModal('profile')}>
       John Doe
       <img className='profile-image' src={profile} alt="profile" height='40' width='40'></img>

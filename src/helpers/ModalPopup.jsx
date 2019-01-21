@@ -21,7 +21,6 @@ class ModalPopup extends Component {
                 <SignupModal isShown={openedModal === 'signup'} handleClose={this.handleClose}/>
                 <LoginModal isShown={openedModal === 'login'} handleClose={this.handleClose}/>
                 <ProfileModal isShown={openedModal === 'profile'} handleClose={this.handleClose}/>
-                {/*<p>I don't want to register</p>*/}
             </div>
 
         )

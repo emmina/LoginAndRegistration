@@ -137,6 +137,35 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+.modal-header {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.close {
+    order: 2;
+    padding: 0 !important;
+    margin-top: 17px !important;
+    margin-right: 17px !important;
+}
+
+.close span {
+    font-weight: 100;
+    font-size: 40px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 310px;
+    left: 159.5px;
+    opacity: 0.5;
+    color: white !important;
+}
+
+.close-signup {
+    top: 430px;
+}
+
 input[type=submit] {
   margin-top: 20px;
   height: 50px;

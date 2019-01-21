@@ -33,6 +33,11 @@
     padding-top: 33px !important;
 }
 
+.login {
+    color: #df9186 !important;
+    font-weight: 500 !important;
+}
+
 .signup-button {
   width: 140px;
   height: 40px;
