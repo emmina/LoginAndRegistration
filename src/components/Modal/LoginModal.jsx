@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 import { userActions } from '../../actions';
 
@@ -21,17 +20,13 @@ class LoginModal extends Component {
     }
 
     async onLogin() {
-        const { dispatch, history, openLoginToast } = this.props;
+        const { dispatch, openLoginToast } = this.props;
         const { email, password } = this.state;
 
         await dispatch(userActions.login({
             email: email,
             password: password
         }, openLoginToast));
-
-        console.log(this.props.user)
-
-        //openLoginToast();
     }
 
     render() {
@@ -74,6 +69,5 @@ function mapStateToProps(state) {
     };
 }
 
-LoginModal = withRouter(LoginModal);
 LoginModal = connect(mapStateToProps)(LoginModal);
 export default LoginModal;

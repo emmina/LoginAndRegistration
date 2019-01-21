@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 import profileImage from '../../assets/profile.png';
 import { userActions } from '../../actions';
+import { history } from '../../helpers';
 
 import './style.css';
 
@@ -13,6 +13,7 @@ class ProfileModal extends Component {
         super(props);
 
         this.onLogout = this.onLogout.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     componentDidMount() {
@@ -22,12 +23,16 @@ class ProfileModal extends Component {
     }
 
     onLogout() {
-        const { dispatch, history, handleClose } = this.props;
+        const { dispatch, handleClose } = this.props;
 
         dispatch(userActions.logout());
 
-        history.replace('/');
         handleClose();
+    }
+
+    handleClose() {
+        this.props.handleClose();
+        history.push('/');
     }
 
     render() {
@@ -40,7 +45,8 @@ class ProfileModal extends Component {
                 backdrop={true}
                 onHide={this.props.handleClose}
                 backdropClassName='backdrop-opacity'>
-                <Modal.Header closeButton>
+                <Modal.Header>
+                <button type="button" className="close" onClick={this.handleClose}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
                 <div className='profile-header'>
                 <img src={profileImage} alt="logo" className='profile-picture' height="80" width="80"/>
                 <div className='profile-name'>
@@ -88,6 +94,5 @@ function mapStateToProps(state) {
     };
 }
 
-ProfileModal = withRouter(ProfileModal);
 ProfileModal = connect(mapStateToProps)(ProfileModal);
 export default ProfileModal;

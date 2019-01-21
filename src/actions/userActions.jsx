@@ -31,6 +31,7 @@ function login(user, loginToast) {
             .then(
                 user => { 
                     dispatch(success(user));
+                    getUser();
                     //history.go(0);
                 },
                 error => {

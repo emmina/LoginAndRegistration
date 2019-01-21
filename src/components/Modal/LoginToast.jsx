@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
+
 import { history } from '../../helpers';
 
 import './style.css';
@@ -13,15 +14,12 @@ class LoginToast extends Component {
     }
 
     closeModal() {
-        const { handleClose } = this.props;
-
-        handleClose();
+        history.go(0);
     }
 
     openProfile() {
-        const { openProfile } = this.props;
-
-        openProfile();
+        history.push('/openedModal=profile');
+        history.go(0);
     }
 
     render() {

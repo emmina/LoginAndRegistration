@@ -6,11 +6,11 @@ import ModalPopup from '../../helpers/ModalPopup';
 import { userActions } from '../../actions';
 
 class Home extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            openedModal: ''
+            openedModal: props.match.params.openedModal !== undefined ? 'profile' : ''
         }
 
         this.onOpenModal = this.onOpenModal.bind(this);

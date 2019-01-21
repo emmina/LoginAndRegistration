@@ -51,9 +51,7 @@ class ModalPopup extends Component {
                     isShown={openedModal === 'reg-toast'}
                     openLogin={this.openLogin} />
                 <LoginToast
-                    isShown={openedModal === 'log-toast'}
-                    handleClose={this.handleClose}
-                    openProfile={this.openProfile} />
+                    isShown={openedModal === 'log-toast'}/>
             </div>
 
         )
