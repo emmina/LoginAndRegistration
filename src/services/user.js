@@ -1,14 +1,14 @@
 import { authHeader } from '../helpers';
 
-function register(user) {
+function register(user, registerToast) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/register', requestOptions).then(handleResponse).then(token => {
-        localStorage.setItem('auth_token', token.auth_token);
+    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/register', requestOptions).then(handleResponse).then(result => {
+        registerToast();
     }
     );
 }
@@ -26,17 +26,18 @@ function getUser() {
     return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/me', requestOptions).then(handleResponse);
 }
 
-function login(user) {
+async function login(user, loginToast) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch('http://flowrspot-api.herokuapp.com/api/v1/users/login', requestOptions)
+    return await fetch('http://flowrspot-api.herokuapp.com/api/v1/users/login', requestOptions)
         .then(handleResponse)
         .then(value => {
             localStorage.setItem('user', JSON.stringify(value));
+            loginToast();
             return user;
         });
 }

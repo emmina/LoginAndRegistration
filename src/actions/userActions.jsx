@@ -2,15 +2,15 @@ import { userConstants } from '../constants';
 import { history } from '../helpers';
 import { userService } from '../services';
 
-function register(user) {
+function register(user, registerToast) {
     return dispatch => {
         dispatch(request(user));
 
-        userService.register(user)
+        userService.register(user, registerToast)
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/');
+                    //history.go(0);
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -23,15 +23,15 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
-function login(user) {
+function login(user, loginToast) {
     return dispatch => {
         dispatch(request(user));
 
-        userService.login(user)
+        userService.login(user, loginToast)
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/');
+                    //history.go(0);
                 },
                 error => {
                     dispatch(failure(error.toString()));

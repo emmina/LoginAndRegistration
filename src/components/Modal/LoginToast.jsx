@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
+import { history } from '../../helpers';
 
 import './style.css';
 

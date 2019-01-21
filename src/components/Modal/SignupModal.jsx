@@ -37,10 +37,10 @@ class SignupModal extends Component {
             date_of_birth: newDate,
             password: password,
             email: email
-        }));
+        }, openRegToast));
 
-        history.replace('/');
-        openRegToast();
+        //history.replace('/');
+        //openRegToast();
     }
 
     render() {

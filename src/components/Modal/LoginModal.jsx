@@ -20,17 +20,18 @@ class LoginModal extends Component {
         this.onLogin = this.onLogin.bind(this);
     }
 
-    onLogin() {
+    async onLogin() {
         const { dispatch, history, openLoginToast } = this.props;
         const { email, password } = this.state;
 
-        dispatch(userActions.login({
+        await dispatch(userActions.login({
             email: email,
             password: password
-        }));
+        }, openLoginToast));
 
-        history.replace('/');
-        openLoginToast();
+        console.log(this.props.user)
+
+        //openLoginToast();
     }
 
     render() {
@@ -68,7 +69,8 @@ class LoginModal extends Component {
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
     return {
-        loggingIn
+        loggingIn,
+        user: state.authentication.user
     };
 }
 
