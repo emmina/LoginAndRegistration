@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
-import moment from 'moment';
 import DatePicker from "react-datepicker";
 
 import { userActions } from '../../actions';
@@ -22,7 +21,6 @@ class SignupModal extends Component {
         };
 
         this.onSignin = this.onSignin.bind(this);
-        this.onChangeDate = this.onChangeDate.bind(this);
     }
 
     onSignin() {
@@ -30,19 +28,14 @@ class SignupModal extends Component {
         const { fname, lname, date, email, password } = this.state;
 
         dispatch(userActions.register({
-            first_name: fname, 
-            last_name: lname, 
+            first_name: fname,
+            last_name: lname,
             date_of_birth: date,
             password: password,
-            email: email}));
+            email: email
+        }));
     }
 
-    onChangeDate(date) {
-        console.log('clicked', date)
-        console.log(moment(date).format('MMMM DD, YYYY'));
-        this.setState({date: date.toString(), dateValue: date});
-    }
-    
     render() {
         const { isShown } = this.props;
 
@@ -68,12 +61,12 @@ class SignupModal extends Component {
                         </div>
 
                         <div className="form-floating-label has-value">
-                        <DatePicker
-                        selected={this.state.dateValue}
-                        className='custom-date'
-  onChange={(event) => this.onChangeDate(event)}
-  dateFormat="MMMM d, yyyy"
-/>
+                            <DatePicker
+                                selected={this.state.dateValue}
+                                className='custom-date'
+                                onChange={(date) => this.setState({ date: date.toString(), dateValue: date })}
+                                dateFormat="MMMM d, yyyy"
+                            />
                             <label className='date-label'>Date of Birth</label>
                         </div>
 
